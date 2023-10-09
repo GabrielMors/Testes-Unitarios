@@ -10,10 +10,12 @@ import Foundation
 class Utils {
     
     static func average(numbers: [Int]) -> Int {
-        var total = 0
-        for numbers in numbers {
-            total = total + numbers
-        }
-        return total / numbers.count
+//        var total = 0
+//        for numbers in numbers {
+//            total = total + numbers
+//        }
+//        return total / numbers.count
+        
+        return numbers.reduce(0, +) / numbers.count
     }
 }
