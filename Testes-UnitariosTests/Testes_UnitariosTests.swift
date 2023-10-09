@@ -7,8 +7,7 @@
 
 import XCTest
 @testable import Testes_Unitarios
-// Aqui você executa todos os testes da classe
-// Para executar todos os testes do projeto. (Command + U)
+
 final class Testes_UnitariosTests: XCTestCase {
     
     var viewController: ViewController!
@@ -22,7 +21,7 @@ final class Testes_UnitariosTests: XCTestCase {
     }
 
     func testExample() throws {
-        var valorTotal = 10 + 10
+        let valorTotal = 10 + 10
         XCTAssertEqual(20, valorTotal)
     }
 
