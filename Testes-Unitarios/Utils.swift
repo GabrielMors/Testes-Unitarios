@@ -15,23 +15,24 @@ class Utils {
 //            total = total + numbers
 //        }
 //        return total / numbers.count
-        
         return numbers.reduce(0, +) / numbers.count
     }
     
     static func isInteger(_ str: String) -> Bool {
-        if let _ = Int(str) {
-            return true
-        } else {
-            return false
-        }
+//        if let _ = Int(str) {
+//            return true
+//        } else {
+//            return false
+//        }
+        return Int(str) != nil
+    }
+    
+    static func randomInRange(upperBound: Int) -> Int {
+        return Int.random(in: 0...upperBound)
     }
     
     static func trimWhitespace(_ str: String) -> String {
-        return str.trimmingCharacters(in: .whitespacesAndNewlines)
+        return str.trimmingCharacters(in: .whitespaces)
     }
     
-    static func randomInRange(upperBound: UInt32) -> Int {
-        return Int(arc4random_uniform(upperBound + 1))
-    }
 }

@@ -8,9 +8,11 @@
 import XCTest
 @testable import Testes_Unitarios
 
-//Função para verificar se uma string é um número inteiro
-// Função para gerar um número aleatório de 0 a um valor especificado
-// Função para remover os espaços em branco no início e no final de uma string
+//MARK: Desafios
+
+//Função para verificar se uma string é um número inteiro ✅
+// Função para gerar um número aleatório de 0 a um valor especificado ✅
+// Função para remover os espaços em branco no início e no final de uma string ✅
 
 final class UtilsTests: XCTestCase {
     
@@ -22,22 +24,28 @@ final class UtilsTests: XCTestCase {
     }
     
     func testConversation() {
-        XCTAssertTrue(Utils.isInteger("123"))
-        XCTAssertFalse(Utils.isInteger("abc"))
+        let textTrue = "10000"
+        let resultTrue = Utils.isInteger(textTrue)
+        let textFalse = "10000Text"
+        let resultFalse = Utils.isInteger(textFalse)
+        
+        XCTAssertTrue(resultTrue, "O resultTrue não pode ser false, pois ele deve conseguir converter a string \(textTrue) em um INT")
+        XCTAssertFalse(resultFalse, "O resultFalse não pode ser true, pois ele não deve conseguir converter a string \(textFalse) em um INT")
+    }
+    
+    func testRandom() {
+        let upperBound = 50
+        let result = Utils.randomInRange(upperBound: upperBound)
+        XCTAssertTrue(result > 0 && result <= upperBound, "0 numero sorteado não pode ser menor que zero ou maior que o upperBound!")
     }
     
     func testRemove() {
-        let string = " Gabriel Mors   "
+        let text = "      Gabriel Mors     "
         let expected = "Gabriel Mors"
-        let resultConversation = Utils.trimWhitespace(string)
-        XCTAssertEqual(resultConversation, expected)
+        let resultConversation = Utils.trimWhitespace(text)
+        XCTAssertEqual(resultConversation, expected, "O texto nao deve contem espaços no final, e no inicio da string")
     }
     
-    func testGenerate() {
-        let upperBound = 50
-        let resultGenerate = Utils.randomInRange(upperBound: UInt32(Int32(upperBound)))
-        XCTAssertLessThan(resultGenerate, upperBound)
-        XCTAssertGreaterThan(resultGenerate, 0)
-    }
+
     
 }
