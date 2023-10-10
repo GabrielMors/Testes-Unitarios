@@ -18,4 +18,20 @@ class Utils {
         
         return numbers.reduce(0, +) / numbers.count
     }
+    
+    static func isInteger(_ str: String) -> Bool {
+        if let _ = Int(str) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static func trimWhitespace(_ str: String) -> String {
+        return str.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    static func randomInRange(upperBound: UInt32) -> Int {
+        return Int(arc4random_uniform(upperBound + 1))
+    }
 }
